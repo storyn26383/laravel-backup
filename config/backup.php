@@ -154,7 +154,7 @@ return [
              * The disk names on which the backups will be stored.
              */
             'disks' => [
-                env('BACKUP_FILESYSTEM_DISK', env('FILESYSTEM_DRIVER', 'local')),
+                env('BACKUP_FILESYSTEM_DISK', 'backup'),
             ],
         ],
 
@@ -260,7 +260,7 @@ return [
     'monitor_backups' => [
         [
             'name' => env('BACKUP_NAME', env('APP_NAME', 'laravel-backup')),
-            'disks' => [env('BACKUP_FILESYSTEM_DISK', env('FILESYSTEM_DRIVER', 'local'))],
+            'disks' => [env('BACKUP_FILESYSTEM_DISK', 'backup')],
             'health_checks' => [
                 \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumAgeInDays::class => 1,
                 \Spatie\Backup\Tasks\Monitor\HealthChecks\MaximumStorageInMegabytes::class => 5000,
