@@ -17,19 +17,18 @@ return [
                 /*
                  * The list of directories and files that will be included in the backup.
                  */
-                'include' => [
-                    base_path(),
-                ],
+                'include' => explode(',', env('BACKUP_FILES', base_path())),
 
                 /*
                  * These directories and files will be excluded from the backup.
                  *
                  * Directories used by the backup process will automatically be excluded.
                  */
-                'exclude' => [
+                'exclude' => explode(',', env('BACKUP_FILES_EXCLUDE', implode(',', [
+                    base_path('.git'),
                     base_path('vendor'),
                     base_path('node_modules'),
-                ],
+                ]))),
 
                 /*
                  * Determines if symlinks should be followed.
@@ -46,7 +45,7 @@ return [
                  * Set to `null` to include complete absolute path
                  * Example: base_path()
                  */
-                'relative_path' => null,
+                'relative_path' => env('BACKUP_RELATIVE_PATH', base_path()),
             ],
 
             /*
