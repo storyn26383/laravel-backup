@@ -57,9 +57,13 @@ return [
         ],
 
         'backup' => [
-            'driver' => 'local',
-            'root' => storage_path('backup'),
-            'throw' => false,
+            'driver' => 's3',
+            'key' => env('BACKUP_S3_ACCESS_KEY_ID'),
+            'secret' => env('BACKUP_S3_SECRET_ACCESS_KEY'),
+            'region' => env('BACKUP_S3_DEFAULT_REGION'),
+            'bucket' => env('BACKUP_S3_BUCKET'),
+            'endpoint' => env('BACKUP_S3_ENDPOINT'),
+            'throw' => true,
         ],
 
     ],
