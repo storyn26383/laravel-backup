@@ -16,6 +16,7 @@ RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/v3.19/community" >> /e
       coreutils \
       mysql-client \
       mariadb-connector-c-dev \
+      postgresql-client \
       php83@community \
       php83-pdo_mysql@community \
       php83-pdo_sqlite@community \
